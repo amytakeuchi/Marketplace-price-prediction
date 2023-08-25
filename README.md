@@ -5,4 +5,4 @@ Mercari, Japan's largest community-powered shopping app, is well aware of this c
 
 GOAL OF THIS PROJECT: Use Regression models to predict reasonable Selling Prices based on features of categories on Mercari, an online marketplace
 
-Primary metric: F1 Score
+
