@@ -3,6 +3,8 @@ At a large scale, determining product pricing becomes increasingly challenging d
 
 Mercari, Japan's largest community-powered shopping app, is well aware of this complexity. They aim to provide pricing suggestions to sellers on their marketplace. However, this task is difficult as Mercari's sellers have the freedom to list almost anything or any combination of items, making it a complex and diverse marketplace.
 
-GOAL OF THIS PROJECT: Use Regression models to predict reasonable Selling Prices based on features of categories on Mercari, an online marketplace
+GOAL OF THIS PROJECT: 
+- Use Regression models to predict reasonable Selling Prices based on features of categories on Mercari, an online marketplace.
+- Identify clusters of frequently available topics in the product description section by rigorous data cleaning and preprocessing.
 
 
