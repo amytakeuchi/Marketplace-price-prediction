@@ -21,7 +21,7 @@ In essence, topic modeling helps answer questions like, "What are the main subje
 
 In this project, I followed the NLP pipeline as seen below:
 
-<img src="images/nlp_pipeline.png?" width="600" height="300"/>
+<img src="images/nlp_pipeline.png?" width="400" height="200"/>
 
 
 Before starting the NLP process, I visualized the number of the words in 'item_description' dataset:
