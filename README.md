@@ -17,4 +17,5 @@ GOAL OF the PROJECTS:
 In this project, I performed Topic Modeling to identify 10 frequently appearing topics on the 'item_description' column of the Mercari dataset. I applied text preprocessing involving 
 
 Before starting the MLP process, I visualized the number of the words in 'item_description' dataset:
-![alt text] (/images/dist_word_count.png)
+
+![dist_word_count] (https://github.com/amytakeuchi/Mmarketplace-Price-Prediction/blob/images/dist_word_count.png)
