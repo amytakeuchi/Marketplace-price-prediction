@@ -119,7 +119,7 @@ for i, topic_dist in enumerate(topic_word):
 ```
 As a result, I could get the top 10 topics as follows:
 
-<img src="images/10_topics.png?" width="300" height="150"/>
+<img src="images/10_topics.png?" width="400" height="250"/>
 
 Next, I visualized the topics to have a more visible image of the clusters of the topics using t_SNE and PCA.
 
