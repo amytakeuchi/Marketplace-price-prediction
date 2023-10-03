@@ -84,7 +84,7 @@ Here, you can identify frequently available words:
 
 <img src="images/top_20_words.png?" width="600" height="300"/>
 
-As expected, you can find the words that specify the condition, size, and 'free shipping' can be found here.
+As expected, you can find the words that specify the condition, size, and `free shipping` can be found here.
 
 ### Feature Engineering
 I applied TFDIF to vectorize the data.
@@ -97,7 +97,7 @@ description_matrix = tfidf_vectorizer.fit_transform(list(df['cleaned_description
 print('Headline after vectorization: \n{}'.format(description_matrix[0]))
 ```
 ### Modeling
-For the Topic Modeling, I applied LDA model to identify the top 10 topics of the 'item_description' data.
+For the Topic Modeling, I applied LDA model to identify the top 10 topics of the `item_description` data.
 Latent Dirichlet Allocation (LDA) is a probabilistic generative model commonly used for topic modeling in natural language processing. LDA assumes that documents are mixtures of topics, and topics are mixtures of words. It helps uncover the hidden topics within a collection of documents by analyzing the distribution of words across those topics. LDA is based on the idea that documents are created through a process where topics are selected, and then words are generated based on those topics, resulting in a coherent representation of the main themes present in the text data.
 ```
 #LDA
@@ -122,8 +122,23 @@ As a result, I could get the top 10 topics as follows:
 <img src="images/10_topics.png?" width="550" height="250"/>
 
 Next, I visualized the topics to have a more visible image of the clusters of the topics using t_SNE and PCA.
+Both Principal Component Analysis (PCA) and t-Distributed Stochastic Neighbor Embedding (t-SNE) are dimensionality reduction techniques often used for data visualization:
+
+PCA (Principal Component Analysis): PCA reduces the dimensionality of data by transforming it into a new set of uncorrelated variables called principal components. It preserves as much variance as possible in the data while reducing its dimensionality. PCA is often used for linear dimensionality reduction and helps visualize data in lower-dimensional space while maintaining the overall structure and relationships between data points.
+
+t-SNE (t-Distributed Stochastic Neighbor Embedding): t-SNE is a nonlinear dimensionality reduction technique specifically designed for data visualization. It maps high-dimensional data points to a lower-dimensional space while preserving the similarities between data points. t-SNE is particularly useful for visualizing clusters and identifying patterns in the data. It tends to group similar data points together in the lower-dimensional space, making it a popular choice for exploratory data analysis and clustering visualization.
 
 <img src="images/tsne_topics.png?" width="350" height="300"/>
 
 <img src="images/pca_topics.png?" width="350" height="300"/>
+
+Here, it can be pointed out that t-SNE is more effectively capturing the relationship between different topics than PCA. PCA is a linear dimensionality reduction technique, and it may not always be the best choice for visualizing topic modeling results. Topic modeling often deals with non-linear relationships between words and topics, and PCA may not capture these complex structures well. On the other hand,  t-SNE is a non-linear dimensionality reduction technique that is often more effective at preserving the local relationships between data points. When used for visualizing topic modeling results, t-SNE can help reveal clusters of documents or topics that are closely related. It tends to group similar topics or documents together in the lower-dimensional space, making it a popular choice for exploring and visualizing topic clusters.
+
+By plotting the topics using PCA and TSNE, topic #2, #6, and #9, as well as #5, forms relatively large topic clusters with little overlap with other topics while the remaining topics frequently overlap each other. topic #2, #5, #6, and #9 are talking about the topics as follows:
+- Topic #2: emphasized discounts and offers including free shipping and bundles
+- Topic #5: conditions and colors/sizes of women's apparels
+- Topic #6: specifies the condition of Phones
+- Topic #9: primarily talking about home goods
+
+While other topics overlap with each other, these 4 topics show distinct clusters.
 
