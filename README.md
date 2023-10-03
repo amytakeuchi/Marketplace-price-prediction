@@ -84,7 +84,8 @@ Here, you can identify frequently available words:
 
 <img src="images/top_20_words.png?" width="600" height="300"/>
 
-As expected, you can find the words that specify the condition, size, and `free shipping` can be found here.
+As expected, you can find the words that specify the condition, size, and `free shipping` can be found here. 
+When I visualized the word crowds of the 'item_description' by the products in different price ranges, the keyword 'new' did not show up as the most frequent keywords in some price range such as listing price in $1,000 - $1,500. So I decided to leave these frequent words for performing the topic modeling while assessing further stop words to remove is one step that I should go through.
 
 ### Feature Engineering
 I applied TFDIF to vectorize the data.
