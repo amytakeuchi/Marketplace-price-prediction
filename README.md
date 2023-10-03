@@ -7,7 +7,7 @@ Based on the product listing dataset provided by Mercari, I worked on two differ
 - **Project #1**: Build a predictive tool to estimate the product listing price using regression modeling
 - **Project #2**: Perform Topic modeling to identify 10 frequently appeared topics on the description section 
   
-GOAL OF the PROJECTS: 
+GOAL of the projects: 
 - Use Regression models to predict reasonable Selling Prices based on features of categories on Mercari, an online marketplace.
 - Identify clusters of frequently available topics in the text data of the product description section by rigorous data cleaning and preprocessing.
 
@@ -19,11 +19,15 @@ Topic modeling is a statistical and machine learning technique used in natural l
 
 In essence, topic modeling helps answer questions like, "What are the main subjects or topics present in a large set of textual data?" Two popular algorithms for topic modeling are Latent Dirichlet Allocation (LDA), which is going to be used in this project, and Non-Negative Matrix Factorization (NMF). These algorithms analyze the co-occurrence patterns of words within documents to uncover topics and their associated word distributions. Researchers and analysts use topic modeling for tasks such as content summarization, recommendation systems, and understanding the main themes in a corpus of text data.
 
+In this project, I followed the NLP pipeline as seen below:
+
+<img src="images/nlp_pipeline.png?" width="600" height="300"/>
+
 
 Before starting the NLP process, I visualized the number of the words in 'item_description' dataset:
 
 <img src="images/dist_word_count.png?" width="600" height="300"/>
-It seems that the distribution is skewed and the length up to 20 words appears most frequently in the section.
+It seems that the distribution is left skewed and the length up to 20 words appears most frequently in the section.
 
 ### Text Preprocessing
 Next, I preprocessed the text data to apply the NLP model. Here, I removed special characters and stopwords, tokenized, and lemmatized the text data using the following codes:
