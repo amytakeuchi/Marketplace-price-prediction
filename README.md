@@ -18,4 +18,4 @@ In this project, I performed Topic Modeling to identify 10 frequently appearing 
 
 Before starting the MLP process, I visualized the number of the words in 'item_description' dataset:
 
-<img src="images/dist_word_count.png?raw=true"/>
+<img src="images/dist_word_count.png?" width="600" height="300"/>
