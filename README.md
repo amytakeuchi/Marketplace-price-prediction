@@ -98,6 +98,7 @@ print('Headline after vectorization: \n{}'.format(description_matrix[0]))
 ```
 ### Modeling
 For the Topic Modeling, I applied LDA model to identify the top 10 topics of the 'item_description' data.
+Latent Dirichlet Allocation (LDA) is a probabilistic generative model commonly used for topic modeling in natural language processing. LDA assumes that documents are mixtures of topics, and topics are mixtures of words. It helps uncover the hidden topics within a collection of documents by analyzing the distribution of words across those topics. LDA is based on the idea that documents are created through a process where topics are selected, and then words are generated based on those topics, resulting in a coherent representation of the main themes present in the text data.
 ```
 #LDA
 lda_model = LatentDirichletAllocation(n_components=10,
@@ -116,3 +117,13 @@ for i, topic_dist in enumerate(topic_word):
     topic_summaries.append(' '.join(topic_words))
     print('Topic {}: {}'.format(i, ' | '.join(topic_words)))
 ```
+As a result, I could get the top 10 topics as follows:
+
+<img src="images/10_topics.png?" width="300" height="150"/>
+
+Next, I visualized the topics to have a more visible image of the clusters of the topics using t_SNE and PCA.
+
+<img src="images/tsne_topics.png?" width="350" height="300"/>
+
+<img src="images/pca_topics.png?" width="350" height="300"/>
+
