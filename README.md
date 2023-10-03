@@ -19,3 +19,55 @@ In this project, I performed Topic Modeling to identify 10 frequently appearing 
 Before starting the MLP process, I visualized the number of the words in 'item_description' dataset:
 
 <img src="images/dist_word_count.png?" width="600" height="300"/>
+It seems that the distribution is skewed and the length up to 20 words appears most frequently in the section.
+
+Next, I preprocessed the text data to apply the modeling using the following codes:
+```
+#Preprocessing
+import string
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+stop_words = set(stopwords.words('english'))
+
+# Assuming you have a DataFrame named 'train' with a column 'item_description'
+# Replace this with your actual DataFrame
+train_description = train['item_description']
+
+def preprocess_text(text):
+    if isinstance(text, str):  # Check if the value is a string
+        # Remove emojis and unicode text
+        text = text.encode('ascii', 'ignore').decode('utf-8')
+        # Convert to lowercase
+        text = text.lower()
+        
+        # Remove special characters and punctuation
+        text = re.sub(r'[^\w\s]', ' ', text)
+        
+        # Remove numbers
+        text = re.sub(r'\d+', '', text)
+        
+        # Tokenize the text
+        tokens = word_tokenize(text)
+        
+        # Remove stopwords
+        stop_words = set(stopwords.words('english'))
+        tokens = [word for word in tokens if word not in stop_words]
+        
+        # Lemmatize the tokens
+        lemmatizer = WordNetLemmatizer()
+        tokens = [lemmatizer.lemmatize(token) for token in tokens]
+        
+        # Join tokens back into a cleaned text
+        cleaned_text = ' '.join(tokens)
+        
+        return cleaned_text
+    else:
+        return ""  # Return an empty string for non-string values
+df = pd.DataFrame(train_description)
+df['cleaned_description'] = df['item_description'].apply(preprocess_text)
+
+# Display the cleaned descriptions
+print(df['cleaned_description'])
+```
