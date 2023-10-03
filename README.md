@@ -9,18 +9,23 @@ Based on the product listing dataset provided by Mercari, I worked on two differ
   
 GOAL OF the PROJECTS: 
 - Use Regression models to predict reasonable Selling Prices based on features of categories on Mercari, an online marketplace.
-- Identify clusters of frequently available topics in the text data of product description section by rigorous data cleaning and preprocessing.
+- Identify clusters of frequently available topics in the text data of the product description section by rigorous data cleaning and preprocessing.
 
 ## Project 1: Predictive modeling
 
 ## Project 2: Topic modeling and clustering
-In this project, I performed Topic Modeling to identify 10 frequently appearing topics on the 'item_description' column of the Mercari dataset. I applied text preprocessing involving 
+In this project, I performed Topic Modeling to identify 10 frequently appearing topics on the 'item_description' column of the Mercari dataset.  
+Topic modeling is a statistical and machine learning technique used in natural language processing (NLP) and text mining to identify and extract the underlying topics or themes within a collection of documents. It helps discover patterns and group similar documents together based on the topics they discuss, without requiring human supervision or predefined categories.
 
-Before starting the MLP process, I visualized the number of the words in 'item_description' dataset:
+In essence, topic modeling helps answer questions like, "What are the main subjects or topics present in a large set of textual data?" Two popular algorithms for topic modeling are Latent Dirichlet Allocation (LDA), which is going to be used in this project, and Non-Negative Matrix Factorization (NMF). These algorithms analyze the co-occurrence patterns of words within documents to uncover topics and their associated word distributions. Researchers and analysts use topic modeling for tasks such as content summarization, recommendation systems, and understanding the main themes in a corpus of text data.
+
+
+Before starting the NLP process, I visualized the number of the words in 'item_description' dataset:
 
 <img src="images/dist_word_count.png?" width="600" height="300"/>
 It seems that the distribution is skewed and the length up to 20 words appears most frequently in the section.
 
+### Text Preprocessing
 Next, I preprocessed the text data to apply the NLP model. Here, I removed special characters and stopwords, tokenized, and lemmatized the text data using the following codes:
 ```
 #Preprocessing
@@ -73,7 +78,41 @@ print(df['cleaned_description'])
 ```
 As a result, I could clean the text and create the tokens as follows:
 
-<img src="images/cleaned_texts.png?" width="600" height="300"/>
+<img src="images/cleaned_texts.png?" width="300" height="150"/>
 
 Here, you can identify frequently available words:
+
 <img src="images/top_20_words.png?" width="600" height="300"/>
+
+As expected, you can find the words that specify the condition, size, and 'free shipping' can be found here.
+
+### Feature Engineering
+I applied TFDIF to vectorize the data.
+```
+#Vectorizing
+tfidf_vectorizer = TfidfVectorizer(min_df=10,
+                             max_features=180000,
+                             ngram_range=(1, 2))
+description_matrix = tfidf_vectorizer.fit_transform(list(df['cleaned_description']))
+print('Headline after vectorization: \n{}'.format(description_matrix[0]))
+```
+### Modeling
+For the Topic Modeling, I applied LDA model to identify the top 10 topics of the 'item_description' data.
+```
+#LDA
+lda_model = LatentDirichletAllocation(n_components=10,
+                                      learning_method='online',
+                                      max_iter=20,
+                                      random_state=42)
+X_topics = lda_model.fit_transform(description_matrix)
+n_top_words = 20
+topic_summaries = []
+
+topic_word = lda_model.components_  # get the topic words
+vocab = tfidf_vectorizer.get_feature_names_out()
+
+for i, topic_dist in enumerate(topic_word):
+    topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words+1):-1]
+    topic_summaries.append(' '.join(topic_words))
+    print('Topic {}: {}'.format(i, ' | '.join(topic_words)))
+```
