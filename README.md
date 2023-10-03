@@ -136,9 +136,9 @@ Here, it can be pointed out that t-SNE is more effectively capturing the relatio
 
 By plotting the topics using PCA and TSNE, topic #2, #6, and #9, as well as #5, forms relatively large topic clusters with little overlap with other topics while the remaining topics frequently overlap each other. topic #2, #5, #6, and #9 are talking about the topics as follows:
 - Topic #2: emphasized discounts and offers including free shipping and bundles
-- Topic #5: conditions and colors/sizes of women's apparels
+- Topic #5: conditions and colors/sizes of women's apparel
 - Topic #6: specifies the condition of Phones
 - Topic #9: primarily talking about home goods
 
-While other topics overlap with each other, these 4 topics show distinct clusters.
+While other topics show smaller clusters or/and overlap with each other, these four topics show distinct clusters. For future reference for pricing by listers, examining the pricing in these four categories of topics can be recommended.
 
