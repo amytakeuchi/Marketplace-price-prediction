@@ -14,3 +14,7 @@ GOAL OF the PROJECTS:
 ## Project 1: Predictive modeling
 
 ## Project 2: Topic modeling and clustering
+In this project, I performed Topic Modeling to identify 10 frequently appearing topics on the 'item_description' column of the Mercari dataset. I applied text preprocessing involving 
+
+Before starting the MLP process, I visualized the number of the words in 'item_description' dataset:
+/images/dist_word_count.png
