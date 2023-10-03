@@ -21,7 +21,7 @@ Before starting the MLP process, I visualized the number of the words in 'item_d
 <img src="images/dist_word_count.png?" width="600" height="300"/>
 It seems that the distribution is skewed and the length up to 20 words appears most frequently in the section.
 
-Next, I preprocessed the text data to apply the modeling using the following codes:
+Next, I preprocessed the text data to apply the NLP model. Here, I removed special characters and stopwords, tokenized, and lemmatized the text data using the following codes:
 ```
 #Preprocessing
 import string
@@ -71,3 +71,9 @@ df['cleaned_description'] = df['item_description'].apply(preprocess_text)
 # Display the cleaned descriptions
 print(df['cleaned_description'])
 ```
+As a result, I could clean the text and create the tokens as follows:
+
+<img src="images/cleaned_texts.png?" width="600" height="300"/>
+
+Here, you can identify frequently available words:
+<img src="images/top_20_words.png?" width="600" height="300"/>
