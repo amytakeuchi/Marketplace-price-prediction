@@ -40,8 +40,6 @@ nltk.download('wordnet')
 
 stop_words = set(stopwords.words('english'))
 
-# Assuming you have a DataFrame named 'train' with a column 'item_description'
-# Replace this with your actual DataFrame
 train_description = train['item_description']
 
 def preprocess_text(text):
